@@ -8,12 +8,11 @@ class Property(models.Model):
     bathrooms = models.DecimalField(max_digits=3, decimal_places=1)
     sqft = models.DecimalField(max_digits=10, decimal_places=2)
     location = models.CharField(max_length=200)
-    type = models.ForeignKey('Type', on_delete=models.CASCADE)
+    # type = models.ForeignKey('Type', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
     
-<<<<<<< HEAD
 class Image(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
@@ -21,14 +20,9 @@ class Image(models.Model):
     def __str__(self):
         return self.property.title
     
-class type(models.Model):
-    type = models.CharField(max_length=50)
-=======
-
 class Type(models.Model):
-    type = models.CharField(max_length=100)
->>>>>>> master
-    description = models.TextField()
+    type = models.CharField(max_length=50, default='For Sale', blank=True, null=True, help_text='For Rent or For sale')
+    description = models.TextField(blank=True)
 
     def __str__(self):
         return self.type

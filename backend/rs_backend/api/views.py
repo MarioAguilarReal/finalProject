@@ -10,7 +10,6 @@ class PropertyDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
 
-<<<<<<< HEAD
 class PropertyImageList(generics.ListCreateAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
@@ -19,8 +18,11 @@ class PropertyImageDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
 
-=======
-class TypeListView(generics.retriveUpdateDestroyAPIView):
+class TypeList(generics.ListCreateAPIView):
     queryset = Type.objects.all()
     serializer_class = TypeSerializer
->>>>>>> master
+
+class TypeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
+
