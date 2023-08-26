@@ -2,10 +2,19 @@ from rest_framework import generics
 from .models import Property
 from .serializers import PropertySerializer
 
-class PropertyListCreateView(generics.ListCreateAPIView):
+class PropertyList(generics.ListCreateAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
 
-class PropertyRetieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+class PropertyDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertySerializer
+
+class PropertyImageList(generics.ListCreateAPIView):
+    queryset = Property.objects.all()
+    serializer_class = PropertySerializer
+
+class PropertyImageDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Property.objects.all()
+    serializer_class = PropertySerializer
+

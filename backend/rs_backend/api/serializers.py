@@ -4,4 +4,9 @@ from .models import Property
 class PropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
-        fields = '__all__'
+        fields = ('id', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'sqft', 'location')
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Property
+        fields = ('id', 'image')
