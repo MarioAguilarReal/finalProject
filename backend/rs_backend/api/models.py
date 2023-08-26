@@ -19,3 +19,11 @@ class Image(models.Model):
 
     def __str__(self):
         return self.property.title
+    
+class type(models.Model):
+    type = models.CharField(max_length=50)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.type
+    
