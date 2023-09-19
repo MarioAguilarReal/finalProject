@@ -1,4 +1,5 @@
 import React from 'react';
+import "./footer.css";
 
 function Footer() {
     return (
@@ -31,13 +32,12 @@ function Footer() {
         </div>
       </div>
 
-      {/* Icons */}
       <div className="container-fluid">
         <div className="row">
           <div className="col text-center">
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -45,7 +45,7 @@ function Footer() {
             </a>
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -53,7 +53,7 @@ function Footer() {
             </a>
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -61,7 +61,7 @@ function Footer() {
             </a>
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -69,7 +69,7 @@ function Footer() {
             </a>
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -77,7 +77,7 @@ function Footer() {
             </a>
             <a
               href="#!"
-              className="btn btn-link btn-floating btn-lg text-dark m-1"
+              className="btn btn-link btn-floating btn-lg text-dark m-1 social-icon"
               role="button"
               data-mdb-ripple-color="dark"
             >
