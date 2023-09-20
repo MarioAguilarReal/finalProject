@@ -3,8 +3,19 @@ import { useState, useEffect } from 'react'
 import { User } from '../../models/User.model'
 import usersService from '../../services/users.service';
 
+const initialUser : User = {
+    username: '',
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    profile_picture: null,
+    email: '',
+    password: '',
+    password2: ''
+};
+
 const NewUsers = () => {
-    const [user, setUser] = useState({} as User);
+    const [user, setUser] = useState(initialUser as User);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -18,44 +29,92 @@ const NewUsers = () => {
         const imageFile = e.target.files?.[0] || null;
         setUser({
             ...user,
-            profilePicture: imageFile
+            profile_picture: imageFile
         });
     };
 
     const saveUser = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (user.password !== user.password2) {
-            alert('Password not match');
-            return;
-        }
+        if (validateData()) {
+            const formData = new FormData();
 
-        const formData = new FormData();
+            for (let key in user) {
+                if (user.hasOwnProperty(key)) {
+                    const value = user[key as keyof User];
+                    if (value !== null) {
 
-        for (let key in user) {
-            if (user.hasOwnProperty(key)) {
-                const value = user[key as keyof User];
-                if (value !== null) {
-
-                    if (value instanceof File) {
-                        formData.append(key, value, value.name);
-                    }
-                    else {
-                        if (key === 'password2') {
-                            continue;
+                        if (value instanceof File) {
+                            formData.append(key, value, value.name);
                         }
-                        formData.append(key, value as string);
+                        else {
+                            if (key === 'password2') {
+                                continue;
+                            }
+                            formData.append(key, value as string);
+                        }
                     }
                 }
             }
+            const resp = await usersService.createUser(formData as any);
+            if (resp) {
+                //Limpiar formulario
+                alert('User created');
+
+                setUser(initialUser as User);
+            }
+            else {
+                alert('Error creating user');
+            }
         }
-        console.log(formData);
-        const resp = await usersService.createUser(formData as any);
-        console.log(resp);
+    }
+
+    const validateData = () => {
+        let isValid = true;
+        if (!user.username) {
+            alert('Username is required');
+            isValid = false;
+            return;
+        }
+        if (!user.first_name) {
+            alert('First name is required');
+            isValid = false;
+            return;
+        }
+        if (!user.last_name) {
+            alert('Last name is required');
+            isValid = false;
+            return;
+        }
+        if (!user.phone_number) {
+            alert('Phone is required');
+            isValid = false;
+            return;
+        }
+        if (!user.email) {
+            alert('Email is required');
+            isValid = false;
+            return;
+        }
+        if (!user.password) {
+            alert('Password is required');
+            isValid = false;
+            return;
+        }
+        if (!user.password2) {
+            alert('Confirm password is required');
+            isValid = false;
+            return;
+        }
+        if (user.password !== user.password2) {
+            alert('Password and confirm password must be the same');
+            isValid = false;
+            return;
+        }
+        return isValid;
     }
 
     useEffect(() => {
-
     }, [])
 
     return (
