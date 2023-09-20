@@ -5,10 +5,10 @@ export interface User {
     email: string;
     password: string;
     password2: string;
-    firstName?: string;
-    lastName?: string;
+    first_name?: string;
+    last_name?: string;
     phone_number?: string;
-    profilePicture?: any;
+    profile_picture?: any;
 
-    properties: Property[];
+    properties?: Property[];
 }

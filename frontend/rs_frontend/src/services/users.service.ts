@@ -25,7 +25,7 @@ class UserService {
             const response = await http.post("/users/", user);
             return response;
         }catch(error){
-            console.log(error);
+            // console.log(error);
         }
     }
 
