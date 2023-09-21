@@ -10,16 +10,10 @@ function Footer() {
           {/* Left column for option links */}
           <div className="col-lg-3 text-start">
             <a href="#!" className="text-dark text-decoration-none d-block mb-2">
-              Option 1
+              Contact Us
             </a>
             <a href="#!" className="text-dark text-decoration-none d-block mb-2">
-              Option 2
-            </a>
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
-              Option 3
-            </a>
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
-              Option 4
+              About
             </a>
           </div>
 
