@@ -9,6 +9,7 @@ function Footer() {
         <div className="row">
           {/* Left column for option links */}
           <div className="col-lg-3 text-start">
+<<<<<<< HEAD:frontend/rs_frontend/src/components/footer/footer.tsx
             <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 1
             </a>
@@ -20,6 +21,13 @@ function Footer() {
             </a>
             <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 4
+=======
+            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+              Contact Us
+            </a>
+            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+              About
+>>>>>>> master:frontend/rs_frontend/src/components/footer.tsx
             </a>
           </div>
 
