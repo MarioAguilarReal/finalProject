@@ -10,6 +10,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 import Footer from './components/footer';
 import Home from './pages/home';
+import NewUsers from './pages/new-user/new_users';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -21,6 +22,7 @@ function App() {
       <main>
         <Routes>
         <Route path='/home' element= {<Home/>}/>
+        <Route path='/new_users' element= {<NewUsers/>}/>
         </Routes>
       {/* <h1> Welcome to the Real Estate Website</h1> */}
       </main>
