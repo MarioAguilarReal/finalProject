@@ -21,7 +21,7 @@ const instance = axios.create({
     headers: {
         'Content-Type': 'multipart/form-data',
     },
-    withCredentials: true,
+    withCredentials: false,
 }) as CustomAxios;
 
 instance.interceptors.request.use((config) => {
