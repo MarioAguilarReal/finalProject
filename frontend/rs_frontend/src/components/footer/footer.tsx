@@ -1,38 +1,38 @@
 import React from 'react';
-import "./footer.css";
+import "./footer.scss";
 
 function Footer() {
-    return (
+  return (
 
-        <footer className="text-center text-white" style={{ backgroundColor: "#f1f1f1" }}>
-      <div className="container-fluid">
+    <footer className="text-center text-white footer">
+      <div className="container-fluid container">
         <div className="row">
           {/* Left column for option links */}
           <div className="col-lg-3 text-start">
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+            <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 1
             </a>
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+            <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 2
             </a>
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+            <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 3
             </a>
-            <a href="#!" className="text-dark text-decoration-none d-block mb-2">
+            <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 4
             </a>
           </div>
 
           {/* Right column for text */}
-          <div className="col-lg-9 text-lg-end">
-            <p className="text-dark">
-              <span className="me-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis ipsum accusantium voluptas ipsa quasi aliquam nam iure. Praesentium, explicabo totam!</span>
+          <div className="col-lg-9 text-footer text-lg-end">
+            <p className="text-footer-child">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam, voluptatibus.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="container-fluid">
+      <div className="container-fluid second-section">
         <div className="row">
           <div className="col text-center">
             <a
@@ -88,12 +88,12 @@ function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="text-center text-dark p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
+      <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
         © Copyright 2023 SDGKU Final Project
       </div>
     </footer>
 
-    );
+  );
 }
 
 export default Footer;
