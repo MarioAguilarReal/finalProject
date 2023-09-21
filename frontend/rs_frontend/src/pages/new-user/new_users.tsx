@@ -210,4 +210,4 @@ const NewUsers = () => {
     )
 }
 
-export default NewUsers
+export default NewUsers;

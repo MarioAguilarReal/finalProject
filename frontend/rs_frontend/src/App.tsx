@@ -12,6 +12,7 @@ import Footer from './components/footer';
 import Home from './pages/home';
 import NewUsers from './pages/new-user/new_users';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Login from './pages/login/login';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
       <Navbar/>
       <main>
         <Routes>
-        <Route path='/home' element= {<Home/>}/>
-        <Route path='/new_users' element= {<NewUsers/>}/>
+        <Route path='/' element= {<Home/>}/>
+        <Route path='/new-users' element= {<NewUsers/>}/>
+        <Route path='/login' element= {<Login />}/>
         </Routes>
       {/* <h1> Welcome to the Real Estate Website</h1> */}
       </main>
