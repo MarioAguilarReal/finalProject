@@ -22,18 +22,18 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Option
+              <a className="nav-link" href="/new-users">
+                New User
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Option
+              <a className="nav-link" href="/login">
+                Login
               </a>
             </li>
           </ul>
