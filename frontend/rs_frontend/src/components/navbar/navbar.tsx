@@ -1,12 +1,13 @@
 import React from 'react';
-import "./navbar.css";
+import "./navbar.scss";
+ 
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <i className="fa-solid fa-house" />
+          <img src="logo.png" alt=""  className='logo'/>
         </a>
         <button
           className="navbar-toggler"
@@ -39,7 +40,7 @@ function Navbar() {
           </ul>
           <a className="nav-link" href="#">
             <i className="fa-solid fa-user nav-item"></i>
-            &nbsp;Sign in
+            &nbsp;Login
           </a>
         </div>
       </div>
