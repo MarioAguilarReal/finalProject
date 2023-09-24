@@ -1,16 +1,20 @@
 import { User } from './User.model';
 export interface Property {
     id: number;
-    name: string;
+    title: string;
     description: string;
-    address: string;
-    city: string;
+    location: string;
+    // city: string;
     state: string;
     zip: string;
     price: number;
-    image: string;
-    userId: number;
+    // image: string;
+    bedrooms: number;
+    bathrooms: number;
+    sqft: number;
+    // userId: number;
+    status: string;
     createdAt: Date;
     updatedAt: Date;
-    user: User;
-    }
+    // user: User;
+}

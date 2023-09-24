@@ -11,25 +11,25 @@ import "@fortawesome/fontawesome-free/js/all.min.js";
 import Footer from './components/footer/footer';
 import Home from './pages/home/home';
 import NewUsers from './pages/new-user/new_users';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
 
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Navbar/>
-      <main>
-        <Routes>
-        <Route path='/' element= {<Home/>}/>
-        <Route path='/new-users' element= {<NewUsers/>}/>
-        <Route path='/login' element= {<Login />}/>
-        </Routes>
-      {/* <h1> Welcome to the Real Estate Website</h1> */}
-      </main>
-      <Footer/>
-    </div>
+      <div className="App">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/new-users' element={<NewUsers />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
+          {/* <h1> Welcome to the Real Estate Website</h1> */}
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

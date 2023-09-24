@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 class Property(models.Model):
     title = models.CharField(max_length=100)
@@ -8,6 +9,10 @@ class Property(models.Model):
     bathrooms = models.DecimalField(max_digits=3, decimal_places=1)
     sqft = models.DecimalField(max_digits=10, decimal_places=2)
     location = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
     # type = models.ForeignKey('Type', on_delete=models.CASCADE)
 
     def __str__(self):
