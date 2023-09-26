@@ -1,13 +1,15 @@
 import React from 'react';
 import "./navbar.scss";
+
  
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg ">
-      <div className="container-fluid">
+      <div className="container-fluid box-fx">
         <a className="navbar-brand" href="#">
-          <img src="logo.png" alt=""  className='logo'/>
+          <img src={require('./logo.png')} alt=""  className='logo img-link box-fx'/>
+          
         </a>
         <button
           className="navbar-toggler"
@@ -22,13 +24,13 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+            <li className="nav-item ">
+              <a className="nav-link active " aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/new-users">
+              <a className="nav-link " href="/new-users">
                 New User
               </a>
             </li>

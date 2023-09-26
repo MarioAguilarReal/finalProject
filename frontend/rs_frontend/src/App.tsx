@@ -11,7 +11,7 @@ import "@fortawesome/fontawesome-free/js/all.min.js";
 import Footer from './components/footer/footer';
 import Home from './pages/home/home';
 import NewUsers from './pages/new-user/new_users';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
 import PropertiesForm from './components/propertiesForm/propertiesForm';
 

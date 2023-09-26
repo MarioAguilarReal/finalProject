@@ -49,14 +49,14 @@
 
 @media (min-width: 768px) {
     .slider{
-        height: 90vh;
+        height: 60vh;
         width: 100%;
         .carrousel-container{
-            max-height: 90vh;
+            max-height: 60vh;
             // display: flex;
         }
         .carousel-item{
-            height: 90vh;
+            height: 60vh;
             width: 100%;
             text-align: center;
             .slider-content{
@@ -73,7 +73,7 @@
             }
             .slider-image{
                 img{
-                    height: 90vh;
+                    height: 60vh;
                     object-fit: cover;
                     width: 100%;
                 }
