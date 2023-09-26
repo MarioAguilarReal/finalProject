@@ -8,7 +8,7 @@ function Footer() {
       <div className="container-fluid container">
         <div className="row">
           {/* Left column for option links */}
-          <div className="col-lg-3 text-start">
+          <div className="col-lg-3 text-start box-fx">
             <a href="#!" className=" text-decoration-none d-block mb-2">
               Option 1
             </a>
