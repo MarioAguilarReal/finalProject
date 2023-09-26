@@ -1,10 +1,29 @@
 import './home.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import Slider from '../../components/slider/slider';
 
 import { Link } from 'react-router-dom';
+import PropertyCard from '../../components/propertyCard/propertyCard';
+import { Property } from '../../models/Property.model';
+import ProperiesService from '../../services/properies.service';
 
 const Home = () => {
+  const [properties, setProperties] = useState([] as any[]);
+
+  const getProperties = async () => {
+    const response = await ProperiesService.getAllProperties();
+    if (response?.data) {
+      console.log(response)
+      setProperties(response.data);
+    }
+  };
+
+
+  useEffect(() => {
+    getProperties();
+  },[]);
+
   return (
     <div className="home-container">
       <div className='home-bg'>
@@ -33,7 +52,7 @@ const Home = () => {
 
       </div>
       <div className="main">
-        
+        {properties.map((property) => <PropertyCard property={property} />)}
       </div>
     </div>
 
