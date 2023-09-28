@@ -35,8 +35,8 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/login">
-                Login
+              <a className="nav-link" href="/new-property">
+                New Property
               </a>
             </li>
           </ul>

@@ -13,25 +13,29 @@ import Home from './pages/home/home';
 import NewUsers from './pages/new-user/new_users';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
+import PropertiesForm from './components/propertiesForm/propertiesForm';
+import PropertiesImages from './components/propertiesForm/propertiesImages';
 import DetailView from './pages/property-detail/detailView'; 
 
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/new-users' element={<NewUsers />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/detailView/:id' element={<DetailView />} />
-          </Routes>
-          {/* <h1> Welcome to the Real Estate Website</h1> */}
-        </main>
-        <Footer />
-      </div>
+    <div className="App">
+      <Navbar/>
+      <main>
+        <Routes>
+        <Route path='/' element= {<Home/>}/>
+        <Route path='/new-users' element= {<NewUsers/>}/>
+        <Route path='/login' element= {<Login />}/>
+        <Route path='/new-property' element= {<PropertiesForm />}/>
+        <Route path='/new-property-2' element= {<PropertiesImages />}/>
+        <Route path='/detailView/:id' element={<DetailView />} />
+        </Routes>
+      {/* <h1> Welcome to the Real Estate Website</h1> */}
+      </main>
+      <Footer/>
+    </div>
     </BrowserRouter>
   );
 }

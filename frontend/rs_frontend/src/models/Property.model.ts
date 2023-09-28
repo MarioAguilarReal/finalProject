@@ -4,11 +4,12 @@ export interface Property {
     title: string;
     description: string;
     location: string;
-    // city: string;
+    city?: string;
     state: string;
     zip: string;
     price: number;
-    // image: string;
+    address?: string;
+    // image: {} as Images;
     bedrooms: number;
     bathrooms: number;
     sqft: number;
