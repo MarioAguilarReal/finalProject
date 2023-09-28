@@ -8,6 +8,7 @@ export interface Property {
     state: string;
     zip: string;
     price: number;
+    address?: string;
     // image: {} as Images;
     bedrooms: number;
     bathrooms: number;

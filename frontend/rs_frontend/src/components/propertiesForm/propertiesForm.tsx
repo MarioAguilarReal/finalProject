@@ -1,46 +1,154 @@
 import './propertiesForm.scss'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Property } from '../../models/Property.model';
 
 const PropertiesForm = () => {
+
+    const initialProperty = {
+        title: '',
+        description: '',
+        price: 0,
+        bedrooms: 0,
+        bathrooms: 0,
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        sqft: 0,
+        status: ''
+    }
+
+    const [property, setProperty] = React.useState(initialProperty as Property);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setProperty({
+            ...property,
+            [name]: value
+        });
+    };
+
+    useEffect(() => {
+        console.log('useEffect');
+    });
+
     return (
         <div className='property-form'>
-            <form action="" method="post">
-                <div className="form-control">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id='name' name='name' />
+            <h1 className='title'>New Property</h1>
+            <p className='subtitle'>Fill all field to go to next step</p>
+            <form action="" method="post" className='form'>
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="text"
+                        id='name'
+                        name='name'
+                        placeholder='Name'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="description">Description</label>
-                    <input type="text" id='description' name='description' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="text"
+                        id='description'
+                        name='description'
+                        placeholder='Description'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="price">Price</label>
-                    <input type="number" id='price' name='price' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="number"
+                        id='price'
+                        name='price'
+                        placeholder='Price'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="bedrooms">Bedrooms</label>
-                    <input type="number" id='bedrooms' name='bedrooms' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="number"
+                        id='bedrooms'
+                        name='bedrooms'
+                        placeholder='Bedrooms'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="bathrooms">Bathrooms</label>
-                    <input type="number" id='bathrooms' name='bathrooms' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="number"
+                        id='bathrooms'
+                        name='bathrooms'
+                        placeholder='Bathrooms'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className='form-control'>
-                    <label htmlFor="address">Address</label>
-                    <input type="text" id='address' name='address' />
+                <div className='form-item'>
+                    <input
+                        className='form-control'
+                        type="text"
+                        id='address'
+                        name='address'
+                        placeholder='Address'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="city">City</label>
-                    <input type="text" id='city' name='city' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="number"
+                        id='sqft'
+                        name='sqft'
+                        placeholder='Sqft'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="state">State</label>
-                    <input type="text" id='state' name='state' />  
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="text"
+                        id='city'
+                        name='city'
+                        placeholder='City'
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="form-control">
-                    <label htmlFor="zip">Zip</label>
-                    <input type="text" id='zip' name='zip' />
+                <div className="form-item">
+                    <input
+                        className='form-control'
+                        type="text"
+                        id='state'
+                        name='state'
+                        placeholder='State'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-item">
+                    <input 
+                    className='form-control'
+                    type="text" 
+                    id='zip' 
+                    name='zip'
+                    placeholder='Zip-Code'
+                    onChange={handleChange} 
+                    />
+                </div>
+                <div className="form-item">
+                    <select 
+                    className='form-control'
+                    id='status' 
+                    name='status'
+                    onChange={handleChange}
+                    >
+                        <option value="sale">Sale</option>
+                        <option value="rent">Rent</option>
+                    </select>
+                </div>
+                <div className="form-item">
+                    <button className='btn btn-primary' type="submit">Next</button>
                 </div>
             </form>
         </div>

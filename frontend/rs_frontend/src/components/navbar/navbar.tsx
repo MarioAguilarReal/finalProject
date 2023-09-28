@@ -35,12 +35,12 @@ function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/login">
-                Login
+              <a className="nav-link" href="/new-property">
+                New Property
               </a>
             </li>
           </ul>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/login">
             <i className="fa-solid fa-user nav-item"></i>
             &nbsp;Login
           </a>

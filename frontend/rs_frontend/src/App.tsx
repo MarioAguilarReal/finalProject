@@ -14,6 +14,7 @@ import NewUsers from './pages/new-user/new_users';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
 import PropertiesForm from './components/propertiesForm/propertiesForm';
+import PropertiesImages from './components/propertiesForm/propertiesImages';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/new-users' element= {<NewUsers/>}/>
         <Route path='/login' element= {<Login />}/>
         <Route path='/new-property' element= {<PropertiesForm />}/>
+        <Route path='/new-property-2' element= {<PropertiesImages />}/>
         </Routes>
       {/* <h1> Welcome to the Real Estate Website</h1> */}
       </main>
