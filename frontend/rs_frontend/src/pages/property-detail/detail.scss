@@ -2,12 +2,49 @@
   display: flex;
   justify-content: center;
   margin: 1rem 0;
+
 }
 
 .container-detail-links{
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
+
+
+}
+
+
+a.text-decoration-none.d-block.mb-2 {
+  font-size: 1.5rem; 
+  transition: color 0.3s ease; 
+}
+
+a.text-decoration-none.d-block.mb-2:hover {
+  color: #380688;
+  border-bottom: 1px solid #380688;
+}
+
+
+.card-body h4 {
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+
+ .card-body p, .card-body li,
+.card-text {
+   text-align: left;
+
+}
+
+.card{
+  width: 80%;
+  background-color: rgb(245, 245, 245);
+  text-align: left;
+  border-left: none;
+  border-right:none; 
+  border-radius: 0;
+
 }
 
 @media (min-width: 768px)
@@ -18,4 +55,12 @@
   margin-top: 1px;
   margin-bottom: 1rem;
 }
+
+.card {
+
+  border: none; 
 }
+
+
+}
+
