@@ -22,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     getProperties();
-  },[]);
+  }, []);
 
   return (
     <div className="home-container">
@@ -49,11 +49,23 @@ const Home = () => {
           <h1 className='slider-title'>REAL ESTATE AGENCY</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate delectus similique ullam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, ea </p>
         </div>
+      </div>
 
-      </div>
+
       <div className="main">
-        {properties.map((property) => <PropertyCard property={property} />)}
+        <div className="properties">
+
+          <div className="properties-header">
+            <h2>Properties</h2>
+            <Link to='/properties'>View all</Link>
+          </div>
+          <div className="properties-content">
+            {properties.map((property) => <PropertyCard property={property} />)}
+          </div>
+        </div>
       </div>
+
+
     </div>
 
   );

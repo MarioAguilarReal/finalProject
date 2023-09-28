@@ -34,50 +34,53 @@ const PropertyCard = (params: any) => {
                 <img src="./static/descarga.jpeg" alt="" />
             </div>
 
+
             <div className="property-info">
-                <div className="property-price">
-                    <h2>{property.price} $</h2>
+                <div>
+                    <div className="property-price">
+                        <h2>{property.price} $</h2>
+                    </div>
+
+                    <div className="property-quickinfo">
+                        <div className="quick-info">
+                            <div className="quick-icon">
+                                <i className="fa-solid fa-bed"></i>
+                            </div>
+                            <p>{property.bedrooms} beds</p>
+                        </div>
+
+                        <div className="quick-info">
+                            <div className="quick-icon">
+                                <i className="fa-solid fa-bath"></i>
+                            </div>
+                            <p>{property.bathrooms} baths</p>
+                        </div>
+
+                        <div className="quick-info">
+                            <div className="quick-icon">
+                                <i className="fa-solid fa-ruler"></i>
+                            </div>
+                            <p>{property.sqft} sqft</p>
+                        </div>
+                    </div>
+
+                    <div className="property-address">
+                        <div className="address-icon">
+                            <i className="fa-solid fa-location-dot"></i>
+                        </div>
+                        <p>{property.location}</p>
+                    </div>
                 </div>
-
-                <div className="property-quickinfo">
-                    <div className="quick-info">
-                        <div className="quick-icon">
-                            <i className="fa-solid fa-bed"></i>
-                        </div>
-                        <p>{property.bedrooms} beds</p>
+                <div className="property-status">
+                    <div className="status-icon">
+                        <i className="fa-solid fa-circle"></i>
                     </div>
-
-                    <div className="quick-info">
-                        <div className="quick-icon">
-                            <i className="fa-solid fa-bath"></i>
-                        </div>
-                        <p>{property.bathrooms} baths</p>
+                    <div className="status">
+                        <p>{property.status}</p>
                     </div>
-
-                    <div className="quick-info">
-                        <div className="quick-icon">
-                            <i className="fa-solid fa-ruler"></i>
-                        </div>
-                        <p>{property.sqft} sqft</p>
-                    </div>
-                </div>
-
-                <div className="property-address">
-                    <div className="address-icon">
-                        <i className="fa-solid fa-location-dot"></i>
-                    </div>
-                    <p>{property.location}</p>
                 </div>
             </div>
 
-            <div className="property-status">
-                <div className="status-icon">
-                    <i className="fa-solid fa-circle"></i>
-                </div>
-                <div className="status">
-                    <p>{property.status}</p>
-                </div>
-            </div>
         </div>
     );
 };
