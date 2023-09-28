@@ -1,0 +1,21 @@
+.container-search{
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.container-detail-links{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px)
+{
+.container-detail-slider{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1px;
+  margin-bottom: 1rem;
+}
+}

@@ -40,7 +40,7 @@ function Navbar() {
               </a>
             </li>
           </ul>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/login">
             <i className="fa-solid fa-user nav-item"></i>
             &nbsp;Login
           </a>

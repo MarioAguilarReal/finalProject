@@ -13,6 +13,7 @@ import Home from './pages/home/home';
 import NewUsers from './pages/new-user/new_users';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/login';
+import DetailView from './pages/property-detail/detailView'; 
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/new-users' element={<NewUsers />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/detailView/:id' element={<DetailView />} />
           </Routes>
           {/* <h1> Welcome to the Real Estate Website</h1> */}
         </main>
