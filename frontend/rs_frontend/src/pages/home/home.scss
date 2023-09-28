@@ -69,6 +69,44 @@
 
 
 .main{
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     min-height: 100vh;
     margin-bottom: 10px;
+    
+    .flex-default {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .properties {
+        @extend .flex-default;
+        gap: 20px;
+        padding: 10px;
+
+        .properties-content {
+            @extend .flex-default;
+            gap: 15px;
+        }
+    }
+
+}
+
+@media (min-width: 745px) {
+    .main {
+        .properties {
+            padding: 10px 20px;
+    
+            .properties-content {
+                // Eliminando propiedades de flex
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+    }
 }
