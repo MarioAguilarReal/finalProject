@@ -44,9 +44,9 @@ const DetailView = () => {
 
 
 <div className="card" style={{ width: "100%" }}>
-        <img className="card-img-top" src={propertyDetails.imageSrc} alt="Property" />
+  
         <div className="card-body">
-          <h5 className="card-title">Price: {propertyDetails.price}</h5>
+          <h4 className="card-title">Price: {propertyDetails.price}</h4>
           <div className="amenities">
             <i className="fa-solid fa-bath" /> {propertyDetails.bathrooms} baths |{' '}
             <i className="fa-solid fa-bed" /> {propertyDetails.bedrooms} beds |{' '}
