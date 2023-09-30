@@ -29,18 +29,8 @@ function Navbar() {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link " href="/new-users">
-                New User
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/login">
-                Login
-              </a>
-            </li>
           </ul>
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/login">
             <i className="fa-solid fa-user nav-item"></i>
             &nbsp;Login
           </a>

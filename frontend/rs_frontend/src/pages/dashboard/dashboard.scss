@@ -1,0 +1,13 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    .sidebar-container{
+        flex: 1.5;
+        height: 100%;
+    }
+    .information-container{
+        flex: 8;
+    }
+
+}

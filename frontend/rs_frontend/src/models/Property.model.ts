@@ -1,20 +1,20 @@
 import { User } from './User.model';
+import { Image } from './Images.model';
 export interface Property {
     id: number;
     title: string;
     description: string;
     location: string;
-    // city: string;
+    city?: string;
     state: string;
     zip: string;
     price: number;
-    // image: string;
+    photos: Image[];
     bedrooms: number;
     bathrooms: number;
     sqft: number;
-    // userId: number;
     status: string;
     createdAt: Date;
     updatedAt: Date;
-    // user: User;
+    user: User;
 }
