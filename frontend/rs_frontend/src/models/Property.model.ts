@@ -1,4 +1,5 @@
 import { User } from './User.model';
+import { Image } from './Images.model';
 export interface Property {
     id: number;
     title: string;
@@ -8,14 +9,12 @@ export interface Property {
     state: string;
     zip: string;
     price: number;
-    address?: string;
-    // image: {} as Images;
+    photos: Image[];
     bedrooms: number;
     bathrooms: number;
     sqft: number;
-    // userId: number;
     status: string;
     createdAt: Date;
     updatedAt: Date;
-    // user: User;
+    user: User;
 }

@@ -17,6 +17,7 @@ class PropertiesService {
             bathrooms: 1,
             sqft: 1,
             status: "for sale",
+            photos:[], // Add photos
             createdAt: new Date(),
             updatedAt: new Date(),
         } as any,
