@@ -21,6 +21,7 @@ const PropertyCard = (params: any) => {
         propertyCopy.bedrooms = params.property.bedrooms
         propertyCopy.bathrooms = params.property.bathrooms
         propertyCopy.location = params.property.location
+        propertyCopy.images = params.property.images
         propertyCopy.status = "for sale"
 
         setProperty(propertyCopy);
@@ -31,7 +32,7 @@ const PropertyCard = (params: any) => {
         <div className="propertyCard" onClick={handleClck}>
 
             <div className="property-image">
-                <img src="./static/descarga.jpeg" alt="" />
+                <img src={property?.images?.length > 0 ? property.images[0].image : ""} alt="" />
             </div>
 
 

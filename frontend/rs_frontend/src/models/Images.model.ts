@@ -1,8 +1,8 @@
 import { Property } from './Property.model';
 export interface Image {
     id?: number;
-    imageFile: string;
-    propertyId?: Property;
+    image: string;
+    property?: number;
     createdAt?: Date;
     updatedAt?: Date;
 };
