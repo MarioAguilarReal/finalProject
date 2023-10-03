@@ -6,14 +6,19 @@
         justify-content: center;
         .slider-container{
             position: relative;
-            width: 80%;
-            height: 0;
+            width: 100%; 
+            height: 2rem;
             bottom: 6rem;
             margin: auto;
+            padding-top: 2rem; 
+            padding-bottom: 4rem; 
             z-index: 2;
+            background-color: rgba(235, 235, 235, 0.192);
+            backdrop-filter: blur(5px); /* Apply the backdrop blur effect */
             .input-group{
                 display: flex;
                 justify-content: center;
+                padding: .5rem 0;
                 .input-group-prepend{
                     .btn{
                         background-color: #001d93;
@@ -22,29 +27,30 @@
                 }
                 .form-control-custom{
                     border: 0;
-                    max-height: 2.1rem;
+                    max-height: 2.3rem;
                     max-width: 60rem;
                     color: black;
                     font-weight: 500;
                 }
                 .input-group-append{
+                    margin-right: .5rem;
                     .btn{
                         background-color: #001d93;
                         border: 0;
                         border-radius: 0;
                     }
                 }
-                .search-filter{
+                .search-filter {
                     border: 0;
-                    max-height: 2.1rem;
-                    color: white;
+                    max-height: 2.3rem;
+                    color: rgb(255, 255, 255);
                     background-color: #001d93;
                     font-weight: 500;
                     border-radius: 5px;
-                    i{
-                        font-weight: 100;
+                    i {
+                      font-weight: 100;
                     }
-                }
+                  }
             }
         }
         .slider-title{
@@ -52,7 +58,7 @@
             font-weight: 500;
             color: black;
             margin-bottom:1rem;
-            margin-top: 3rem;
+            // margin-top: 3rem;
         }
         p{
             margin-bottom: 3rem;

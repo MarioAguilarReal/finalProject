@@ -9,7 +9,7 @@ export interface Property {
     state: string;
     zip: string;
     price: number;
-    photos: Image[];
+    images: Image[];
     bedrooms: number;
     bathrooms: number;
     sqft: number;
@@ -17,4 +17,5 @@ export interface Property {
     createdAt: Date;
     updatedAt: Date;
     user: User;
+    amenities?: string[];
 }
