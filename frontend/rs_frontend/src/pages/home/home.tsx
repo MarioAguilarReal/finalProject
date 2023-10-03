@@ -38,7 +38,7 @@ const Home = () => {
               </div>
               <input type="text" className="form-control-custom" placeholder="Search" />
               <div className="input-group-append">
-                <button className="btn btn-secondary" type="button">
+                <button className="btn btn-secondary search-button" type="button">
                   <i className="fa fa-search" />
                 </button>
               </div>

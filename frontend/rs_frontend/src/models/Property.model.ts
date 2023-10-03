@@ -17,4 +17,5 @@ export interface Property {
     createdAt: Date;
     updatedAt: Date;
     user: User;
+    amenities?: string[];
 }

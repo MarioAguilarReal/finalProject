@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import './detailSlider.scss';
+import { Image } from '../../models/Images.model';
 
-const DetailSlider = () => {
+const DetailSlider = ({ images }: any) => {
   return (
     <div className="container">
       <div className="row">
@@ -14,18 +15,10 @@ const DetailSlider = () => {
           >
             {/* slides */}
             <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img src="https://i.imgur.com/weXVL8M.jpg" alt="Hills" />
-              </div>
-              <div className="carousel-item">
-                <img src="https://i.imgur.com/Rpxx6wU.jpg" alt="Hills" />
-              </div>
-              <div className="carousel-item">
-                <img src="https://i.imgur.com/83fandJ.jpg" alt="Hills" />
-              </div>
-              <div className="carousel-item">
-                <img src="https://i.imgur.com/JiQ9Ppv.jpg" alt="Hills" />
-              </div>
+              {images.map((x: Image, index: number) => <div className={"carousel-item " + (index == 0 ? "active" : "")}>
+                <img src={x.image} alt="Hills" />
+              </div>)}
+
             </div>
             {/* Left right */}
             <button
@@ -46,50 +39,18 @@ const DetailSlider = () => {
             </button>
             {/* Thumbnails */}
             <ol className="carousel-indicators list-inline">
-              <li
+              {images.map((x: Image, index: number) => <li
                 className="list-inline-item active"
                 data-bs-target="#custCarousel"
-                data-bs-slide-to="0"
+                data-bs-slide-to={index}
               >
                 <img
-                  src="https://i.imgur.com/weXVL8M.jpg"
+                  src={x.image}
                   className="img-fluid"
                   alt="Thumbnail 1"
                 />
-              </li>
-              <li
-                className="list-inline-item"
-                data-bs-target="#custCarousel"
-                data-bs-slide-to="1"
-              >
-                <img
-                  src="https://i.imgur.com/Rpxx6wU.jpg"
-                  className="img-fluid"
-                  alt="Thumbnail 2"
-                />
-              </li>
-              <li
-                className="list-inline-item"
-                data-bs-target="#custCarousel"
-                data-bs-slide-to="2"
-              >
-                <img
-                  src="https://i.imgur.com/83fandJ.jpg"
-                  className="img-fluid"
-                  alt="Thumbnail 3"
-                />
-              </li>
-              <li
-                className="list-inline-item"
-                data-bs-target="#custCarousel"
-                data-bs-slide-to="3"
-              >
-                <img
-                  src="https://i.imgur.com/JiQ9Ppv.jpg"
-                  className="img-fluid"
-                  alt="Thumbnail 4"
-                />
-              </li>
+              </li>)}
+
             </ol>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Property } from "../../models/Property.model";
 import "./propertyCard.scss"
+import { Link } from 'react-router-dom';
 
 const PropertyCard = (params: any) => {
 
@@ -29,6 +30,7 @@ const PropertyCard = (params: any) => {
     }, [params.property]);
 
     return (
+        <Link to={`/property/${property.id}`} >
         <div className="propertyCard" onClick={handleClck}>
 
             <div className="property-image">
@@ -83,6 +85,7 @@ const PropertyCard = (params: any) => {
             </div>
 
         </div>
+        </Link>
     );
 };
 
