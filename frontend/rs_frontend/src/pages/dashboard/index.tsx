@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import NewPropertyPage from "../new-property/newPropertyPage";
 import Sidebar from "./aside-menu/aside-menu";
 import "./dashboard.scss";
@@ -11,7 +12,9 @@ const AdminSite = () => {
             <div className="information-container">
                 {/* Router with new prperty, propertiesList, UsersList */}
                 
-                <NewPropertyPage />
+                {/* <NewPropertyPage /> */}
+
+                <Outlet />
             </div>
         </div>
     );

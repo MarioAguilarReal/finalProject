@@ -40,3 +40,15 @@ class UserViewset(viewsets.ModelViewSet):
         user = User.objects.get(pk=pk)
         user.delete()
         return Response(status=204)
+    
+
+@api_view(['POST'])
+def login(request):
+    if request.method == 'POST':
+        email = request.data['email']
+        password = request.data['password']
+        user = User.objects.get(email=email)
+        if user.check_password(password):
+            return Response(True)
+        return Response(False)
+    return Response(False)

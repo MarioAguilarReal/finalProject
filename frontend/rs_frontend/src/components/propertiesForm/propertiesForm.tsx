@@ -57,8 +57,6 @@ const PropertiesForm = () => {
 
     return (
         <div className='property-form'>
-            <h1 className='title'>New Property</h1>
-            <p className='subtitle'>Fill all field to go to next step</p>
             <form action="" method="post" className='form' onSubmit={handleSubmit}>
                 <div className="form-item">
                     <input

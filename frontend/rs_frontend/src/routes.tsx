@@ -13,7 +13,7 @@ import EditPropertyPage from "./pages/edit-property/editPropertyPage";
 
 const RouteWrapper: React.FC = () => {
     const location = useLocation();
-    const routesWithoutNavFoot = ["/login", "/new-property", "/edit-property", "/admin/dashboard", "/new-users"];
+    const routesWithoutNavFoot = ["/login", "/new-property", "/admin/edit", "/admin/dashboard", "/new-users"];
     const shouldShowNavFoot = !routesWithoutNavFoot.includes(location.pathname);
 
     return (
@@ -25,7 +25,10 @@ const RouteWrapper: React.FC = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
-            <Route path="/admin/dashboard" element={<AdminSite />} />
+            <Route path="/admin" element={<AdminSite />} >
+                <Route index path="dashboard" element={<NewPropertyPage />} />
+                <Route path="edit" element={<EditPropertyPage />} />
+            </Route>
         </Routes>
         {shouldShowNavFoot && <Footer />}
     </div>
