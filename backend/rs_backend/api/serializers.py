@@ -5,15 +5,16 @@ from .models import (
     Type,
 )
 
-class PropertySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Property
-        fields = ('id', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'sqft', 'location')
-
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
+        model = Image
+        fields = '__all__'
+
+class PropertySerializer(serializers.ModelSerializer):
+    images = ImageSerializer(many=True)
+    class Meta:
         model = Property
-        fields = ('id', 'image')
+        fields = '__all__'
 
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:

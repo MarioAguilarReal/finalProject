@@ -9,6 +9,8 @@
     }
 }
 
+
+
 // propertyCard
 .propertyCard {
     display: flex;
@@ -117,7 +119,7 @@
 
 // Desktop version
 
-@media (min-width: 745px) {
+@media (min-width: 765px) {
     .propertyCard {
         flex-direction: row;
         height: 250px;
