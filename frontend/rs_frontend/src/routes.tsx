@@ -9,6 +9,7 @@ import PropertiesForm from "./components/propertiesForm/propertiesForm";
 import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";
+import DetailView from "./pages/property-detail/detailView";
 
 
 const RouteWrapper: React.FC = () => {
@@ -26,6 +27,7 @@ const RouteWrapper: React.FC = () => {
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/admin/dashboard" element={<AdminSite />} />
+            <Route path="/property/:id" element={<DetailView />} />
         </Routes>
         {shouldShowNavFoot && <Footer />}
     </div>

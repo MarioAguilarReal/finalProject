@@ -1,8 +1,12 @@
 import { Property } from './Property.model';
 export interface Image {
     id?: number;
-    imageFile: string;
+    image: string;
+<<<<<<< HEAD
+    property?: number;
+=======
     propertyId?: Property;
+>>>>>>> master
     createdAt?: Date;
     updatedAt?: Date;
 };
