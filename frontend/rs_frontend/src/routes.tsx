@@ -14,7 +14,7 @@ import DetailView from "./pages/property-detail/detailView";
 
 const RouteWrapper: React.FC = () => {
     const location = useLocation();
-    const routesWithoutNavFoot = ["/login", "/new-property", "/edit-property", "/admin/dashboard", "/new-users"];
+    const routesWithoutNavFoot = ["/login", "admin/users", "admin/edit", "/admin/dashboard", "admin/new-user"];
     const shouldShowNavFoot = !routesWithoutNavFoot.includes(location.pathname);
 
     return (
@@ -24,9 +24,11 @@ const RouteWrapper: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/new-users" element={<NewUsers />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/new-property" element={<NewPropertyPage />} />
-            <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/admin/dashboard" element={<AdminSite />} />
+                <Route index path="dashboard" element={<NewPropertyPage />} />
+                <Route path="/edit" element={<EditPropertyPage />} />
+                <Route path="/new-user" element={<NewUsers />} />
+                <Route path="/users" element={<UsersList />} />
             <Route path="/property/:id" element={<DetailView />} />
         </Routes>
         {shouldShowNavFoot && <Footer />}
