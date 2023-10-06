@@ -16,7 +16,7 @@ class UserViewset(viewsets.ModelViewSet):
         queryset = User.objects.all()
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
-    
+
     def create(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -25,22 +25,22 @@ class UserViewset(viewsets.ModelViewSet):
             user.profile_picture = request.data['profile_picture']
             user.profile_picture.name = unique_filename
             user.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-    
+            return Response(status=200, data=serializer.data)
+        return Response(status= 400, data=serializer.errors)
+
     def partial_update(self, request, pk=None):
         user = User.objects.get(pk=pk)
         serializer = UserSerializer(user, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
-        return Response(serializer.errors)
-    
+        return Response(status= 400,data = serializer.errors)
+
     def destroy(self, request, pk=None):
         user = User.objects.get(pk=pk)
         user.delete()
         return Response(status=204)
-    
+
 
 @api_view(['POST'])
 def login(request):

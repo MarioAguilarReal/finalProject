@@ -10,10 +10,6 @@ const AdminSite = () => {
                 <Sidebar />
             </div>
             <div className="information-container">
-                {/* Router with new prperty, propertiesList, UsersList */}
-                
-                {/* <NewPropertyPage /> */}
-
                 <Outlet />
             </div>
         </div>

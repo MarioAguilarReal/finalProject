@@ -2,8 +2,8 @@ import './propertiesForm.scss'
 import React, { useEffect } from 'react';
 import { Property } from '../../models/Property.model';
 import { useNavigate } from 'react-router-dom';
-const PropertiesForm = () => {
-    
+const PropertiesForm = (props:any) => {
+    const {property, handleChange, handleSubmit, validateForm } = props;
     const navigateTo = useNavigate();
 
     const initialProperty = {
@@ -19,41 +19,6 @@ const PropertiesForm = () => {
         sqft: 0,
         status: ''
     }
-    const [property, setProperty] = React.useState(initialProperty as Property);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setProperty({
-            ...property,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if(validateForm()){
-            navigateTo('/new-property-2');
-        }
-        console.log(property);
-    };
-
-    const validateForm = () => {
-        //check if all fields are filled
-        let isValid = true;
-        //check if all fields are valid
-        for (let key in property) {
-            if (property[key as keyof Property] === '' || property[key as keyof Property] === 0) {
-                isValid = false;
-                console.log(key, isValid);
-            }
-        }
-        return isValid;
-
-    }
-
-    useEffect(() => {
-        console.log('useEffect');
-    });
 
     return (
         <div className='property-form'>
@@ -149,19 +114,19 @@ const PropertiesForm = () => {
                     />
                 </div>
                 <div className="form-item">
-                    <input 
+                    <input
                     className='form-control'
-                    type="text" 
-                    id='zip' 
+                    type="text"
+                    id='zip'
                     name='zip'
                     placeholder='Zip-Code'
-                    onChange={handleChange} 
+                    onChange={handleChange}
                     />
                 </div>
                 <div className="form-item">
-                    <select 
+                    <select
                     className='form-control'
-                    id='status' 
+                    id='status'
                     name='status'
                     onChange={handleChange}
                     >

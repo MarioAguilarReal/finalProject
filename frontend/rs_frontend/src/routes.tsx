@@ -10,11 +10,12 @@ import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";
 import DetailView from "./pages/property-detail/detailView";
+import PropertiesList from "./pages/dashboard/properties/properties-list";
 
 
 const RouteWrapper: React.FC = () => {
     const location = useLocation();
-    const routesWithoutNavFoot = ["/login", "/new-property", "/admin/edit", "/admin/dashboard", "/new-users"];
+    const routesWithoutNavFoot = ["/login", "/admin/users", "/admin/edit", "/admin/properties", "/admin/dashboard", "/admin/new-user"];
     const shouldShowNavFoot = !routesWithoutNavFoot.includes(location.pathname);
 
     return (
@@ -22,13 +23,14 @@ const RouteWrapper: React.FC = () => {
         {shouldShowNavFoot && <Navbar />}
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/new-users" element={<NewUsers />} />
             <Route path="/login" element={<Login />} />
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/admin" element={<AdminSite />} >
                 <Route index path="dashboard" element={<NewPropertyPage />} />
                 <Route path="edit" element={<EditPropertyPage />} />
+                <Route path="new-user" element={<NewUsers />} />
+                <Route path="properties" element={<PropertiesList />} />
             </Route>
         </Routes>
         {shouldShowNavFoot && <Footer />}

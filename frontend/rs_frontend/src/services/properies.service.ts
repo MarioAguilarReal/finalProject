@@ -8,7 +8,6 @@ class PropertiesService {
     try {
         const response = await http.get('/properties/'); // Uncomment for production
         // const response = testData;
-        console.log(response);
         return response;
     } catch (error) {
         console.error(error);
@@ -17,7 +16,17 @@ class PropertiesService {
 
   async createProperty(property: Property) {
     try {
-        const response = await http.post('/properties/', property, { headers: { 'Content-Type': 'multipart/form-data' } });
+        const response = await http.post('/properties/', property);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+  }
+
+  async createImages(formData: FormData) {
+    try {
+      // console.log(formData);
+        const response = await http.post('/images/', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
         return response;
     } catch (error) {
         console.error(error);
