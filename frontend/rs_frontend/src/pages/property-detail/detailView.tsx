@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './detail.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate  } from 'react-router-dom';
 import DetailSlider from '../../components/detailSlider/detailSlider';
 import axios from 'axios';
 import { Property } from '../../models/Property.model';
-
+import properiesService from '../../services/properies.service';
 
 const DetailView = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [propertyDetails, setProperty] = useState<Property>();
 
   useEffect(() => {
-
-    axios.get(`/api/properties/${id}/`)
-      .then(response => {
-        console.log('Property Test and log:', response.data);
-        let data = response.data;
-        data.images = [{ image: "https://i.imgur.com/weXVL8M.jpg" }, {image: "https://i.imgur.com/Rpxx6wU.jpg"}, {image: "https://i.imgur.com/83fandJ.jpg"}]
-        setProperty(data); //response.data
-      })
-      .catch(error => {
-        console.error('Error fetching property details:', error);
-      });
+    loadData();
   }, [id]);
+
+  async function loadData () {
+    if (!id) return;
+    let response = await properiesService.getProperty(id);
+    setProperty(response?.data);
+
+  }
+
+  const handleGoBack = () => {
+    navigate(-1); // Use the history object to go back to the previous page.
+  };
 
   if (!propertyDetails) {
 
@@ -41,8 +43,8 @@ const DetailView = () => {
       </div>
       <div className='container-detail-links'>
 
-        <a href="#!" className=" text-decoration-none d-block mb-2">
-          Back
+        <a href="#!" className=" text-decoration-none d-block mb-2" onClick={handleGoBack}>
+        <i className="fa-solid fa-chevron-left"></i>Back
         </a>
         <button type="submit" className='btn btn-primary contact-button'> Contact Agent <i className="fa-regular fa-envelope"></i> </button>
 

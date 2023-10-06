@@ -1,12 +1,14 @@
 .container{
     margin-top:2rem;
-    margin-bottom:2rem;
+    margin-bottom:3rem;
 
 }
 
 .carousel-inner img {
     max-width: 90%;
     max-height: 90%;
+    object-fit: cover; 
+    
 }
 
 #custCarousel .carousel-indicators {
@@ -32,9 +34,24 @@ width:100px;
 }
 
 .carousel-item img{
-
+  height:100%;///////////////////////////
+  object-fit: cover;//////////////////////
   width:80%;
 }
+
+.carousel-inner {
+  height: 0;
+  padding-bottom: 45%; /* this is affecting size and aspect ratio */
+}
+
+.carousel-item {
+  position: absolute !important; /* Bootstrap is insistent */
+  top: 0;
+  right: 0;
+  bottom: 20;
+  left: 0;
+}
+
 
 // control arrows
 .carousel-control-prev {
@@ -51,6 +68,7 @@ width:100px;
         margin-top: .3rem;
         display: block;
         justify-content: flex-start;
+        margin-bottom:2rem;
     }
     .carousel-inner img {
         max-width: 60%;
@@ -58,4 +76,8 @@ width:100px;
 
     }
     
+    .carousel-inner {
+      height: 0;
+      padding-bottom: 35%; /* this is affecting size and aspect ratio */
+    }
 }
