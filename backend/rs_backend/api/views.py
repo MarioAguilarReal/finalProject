@@ -51,27 +51,6 @@ class ImageViewset(viewsets.ModelViewSet):
         serializer = ImageSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request):
-        data = json.loads(request.data['property'])
-        property_instance = Property.objects.get(pk=int(data['id']))
-
-        image_instance = {
-            'property': property_instance,
-            'image': request.data['image']
-        }
-
-        serializer = ImageSerializer(data = image_instance)
-        number_of_images = Image.objects.filter(property=property_instance).count()
-        if serializer.is_valid():
-            unique_filename = f"{data['id']}_{data['name']}_Image_{number_of_images+1}.png"
-            image = serializer.save(image=unique_filename)
-            image.image = image_instance['image']
-            image.image.name = unique_filename
-            image.save()
-            print("guardado")
-            return Response(serializer.data, status=200)
-        return Response(serializer.errors)
-
     def partial_update(self, request, pk=None):
         image = Image.objects.get(pk=pk)
         serializer = ImageSerializer(image, data=request.data, partial=True)

@@ -18,13 +18,17 @@ const Login = () => {
   const [logUser, setLogUser] = useState(user as User);
 
 
-  const handleSubmit = async () => {
-    let resp = await usersService.login(logUser);
-    console.log(resp);
-    navigateTo('/admin/dashboard');
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const resp:any = await usersService.login(logUser);
+    if(resp?.status === 200){
+      navigateTo('/admin/dashboard');
+    }else{
+      alert('Invalid credentials');
+    }
   }
 
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLogUser({
@@ -41,12 +45,12 @@ const Login = () => {
       <section>
         <h1 className='title-form'>Login</h1>
         <div className="login-form">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} method='POST'>
             <div className="mb-4">
               <input
                 type="email"
                 className="form-control"
-                id="email" 
+                id="email"
                 placeholder='Email'
                 name='email'
                 onChange={handleChange}

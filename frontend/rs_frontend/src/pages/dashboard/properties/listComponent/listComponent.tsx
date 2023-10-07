@@ -4,7 +4,7 @@ import { Property } from "../../../../models/Property.model";
 const ListPropertyComponent = (property:Property) =>{
   const NavigateTo = useNavigate();
   const editProperty = () =>{
-    NavigateTo(`/admin/edit`)
+    NavigateTo(`/admin/edit/${property.id}`)
   }
   return (
     <div>

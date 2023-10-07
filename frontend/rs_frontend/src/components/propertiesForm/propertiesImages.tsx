@@ -12,6 +12,7 @@ interface Image {
 }
 
 function ImageUpload(props:any) {
+  const {serveImages} = props;
   const {propertyRef}=props;
   const [images, setImages] = useState<Image[]>([]);
 
@@ -43,9 +44,8 @@ function ImageUpload(props:any) {
   const submitImages = () => {
     images.forEach(image => {
       let formData = new FormData();
-      console.log(image)
       formData.append('image', image.file);
-      formData.append('property', JSON.stringify(image.property));
+      formData.append('property', image.property.id.toString());
       ProperiesService.createImages(formData);
     });
   };
@@ -53,11 +53,17 @@ function ImageUpload(props:any) {
 
 
   useEffect(() => {
-    console.log(propertyRef)
     if(propertyRef){
-      console.log(propertyRef)
     }
-  }, [propertyRef]);
+    if(serveImages){
+      let prevIm:Image[] = serveImages.map((image:any) => (
+        image.preview = image.image,
+        image.file = image.image
+      ))
+      console.log(serveImages);
+      setImages(serveImages);
+    }
+  }, [propertyRef, serveImages]);
 
 
   return (

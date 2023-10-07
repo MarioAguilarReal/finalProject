@@ -1,10 +1,11 @@
 from rest_framework import parsers, viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
-
-
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 from .models import User
 from .serializers import UserSerializer
+from django.views.decorators.csrf import csrf_exempt
 
 class UserViewset(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -41,14 +42,39 @@ class UserViewset(viewsets.ModelViewSet):
         user.delete()
         return Response(status=204)
 
-
 @api_view(['POST'])
-def login(request):
+@csrf_exempt
+def login_view(request):
     if request.method == 'POST':
         email = request.data['email']
         password = request.data['password']
-        user = User.objects.get(email=email)
+
+        try:
+            user = User.objects.get(email=email)
+            print(user)
+        except User.DoesNotExist:
+            return Response({'error': 'El usuario no existe.'}, status=400)
+        print(user.check_password(password))
+        print(password)
         if user.check_password(password):
-            return Response(True)
-        return Response(False)
+            # login(request, user)
+            return Response({'message': 'Inicio de sesión exitoso.'})
+
+        return Response({'error': 'Contraseña incorrecta.'}, status=400)
+
+    return Response({'error': 'Método no permitido.'}, status=405)
+
+
+@api_view(['GET'])
+def check_auth(request):
+    if request.user.is_authenticated:
+        return Response(True)
     return Response(False)
+
+@api_view(['GET'])
+def logout(request):
+    if request.method == 'POST':
+        logout(request)
+        return Response(True)
+    return Response(False)
+

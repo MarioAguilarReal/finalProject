@@ -4,7 +4,8 @@ from django.conf.urls.static import static
 from rest_framework.routers import SimpleRouter
 from .views import (
     UserViewset,
-    login
+    login_view,
+    check_auth
 )
 
 router = SimpleRouter()
@@ -13,5 +14,6 @@ urlpatterns = router.urls
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [
-    path('login/', login, name='login')
+    path('login/', login_view, name='login'),
+    path('check_auth/', check_auth, name='check_auth')
 ]

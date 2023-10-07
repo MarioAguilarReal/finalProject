@@ -23,6 +23,15 @@ class PropertiesService {
     }
   }
 
+  async updateProperty(property: Property) {
+    try {
+        const response = await http.patch(`/properties/${property.id}/`, property);
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
+  }
+
   async createImages(formData: FormData) {
     try {
       // console.log(formData);
