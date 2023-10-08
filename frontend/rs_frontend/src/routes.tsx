@@ -10,6 +10,7 @@ import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";
 import DetailView from "./pages/property-detail/detailView";
+import Contact from "./pages/contact/contact";
 
 
 const RouteWrapper: React.FC = () => {
@@ -28,6 +29,8 @@ const RouteWrapper: React.FC = () => {
             <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/admin/dashboard" element={<AdminSite />} />
             <Route path="/property/:id" element={<DetailView />} />
+            <Route path="/contact" element={<Contact />} />
+
         </Routes>
         {shouldShowNavFoot && <Footer />}
     </div>
