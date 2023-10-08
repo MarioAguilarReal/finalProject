@@ -14,7 +14,6 @@ const Home = () => {
   const getProperties = async () => {
     const response = await ProperiesService.getAllProperties();
     if (response?.data) {
-      console.log(response)
       setProperties(response.data);
     }
   };

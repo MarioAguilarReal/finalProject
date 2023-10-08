@@ -8,6 +8,8 @@
     }
     .information-container{
         flex: 8;
+        max-height: 100%;
+        overflow-y: auto;
     }
 
 }

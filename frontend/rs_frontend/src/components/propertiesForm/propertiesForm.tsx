@@ -1,11 +1,14 @@
 import './propertiesForm.scss'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Property } from '../../models/Property.model';
 import { useNavigate } from 'react-router-dom';
-const PropertiesForm = () => {
-    
-    const navigateTo = useNavigate();
 
+
+const PropertiesForm = (props:any) => {
+    const {property, handleChange, handleSubmit, validateForm, handleEdit} = props;
+    const navigateTo = useNavigate();
+    const [propertyForm, setPropertyForm] = useState<Property>();
+    const [editing, setEditing] = useState(false);
     const initialProperty = {
         title: '',
         description: '',
@@ -18,48 +21,20 @@ const PropertiesForm = () => {
         city: '',
         sqft: 0,
         status: ''
-    }
-    const [property, setProperty] = React.useState(initialProperty as Property);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setProperty({
-            ...property,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if(validateForm()){
-            navigateTo('/new-property-2');
-        }
-        console.log(property);
-    };
-
-    const validateForm = () => {
-        //check if all fields are filled
-        let isValid = true;
-        //check if all fields are valid
-        for (let key in property) {
-            if (property[key as keyof Property] === '' || property[key as keyof Property] === 0) {
-                isValid = false;
-                console.log(key, isValid);
-            }
-        }
-        return isValid;
-
-    }
+    } as Property;
 
     useEffect(() => {
-        console.log('useEffect');
-    });
+        if(property){
+            setPropertyForm(property);
+            setEditing(true);
+        }else{
+            setPropertyForm(initialProperty);
+        }
+    }, [property])
 
     return (
         <div className='property-form'>
-            <h1 className='title'>New Property</h1>
-            <p className='subtitle'>Fill all field to go to next step</p>
-            <form action="" method="post" className='form' onSubmit={handleSubmit}>
+            <form action="" method="post" className='form' onSubmit={editing ? handleEdit : handleSubmit}>
                 <div className="form-item">
                     <input
                         className='form-control'
@@ -68,6 +43,7 @@ const PropertiesForm = () => {
                         name='title'
                         placeholder='Title'
                         onChange={handleChange}
+                        value={propertyForm?.title}
                     />
                 </div>
                 <div className="form-item">
@@ -78,6 +54,7 @@ const PropertiesForm = () => {
                         name='description'
                         placeholder='Description'
                         onChange={handleChange}
+                        value={propertyForm?.description}
                     />
                 </div>
                 <div className="form-item">
@@ -88,6 +65,7 @@ const PropertiesForm = () => {
                         name='price'
                         placeholder='Price'
                         onChange={handleChange}
+                        value={propertyForm?.price}
                     />
                 </div>
                 <div className="form-item">
@@ -98,6 +76,7 @@ const PropertiesForm = () => {
                         name='bedrooms'
                         placeholder='Bedrooms'
                         onChange={handleChange}
+                        value={propertyForm?.bedrooms}
                     />
                 </div>
                 <div className="form-item">
@@ -108,6 +87,7 @@ const PropertiesForm = () => {
                         name='bathrooms'
                         placeholder='Bathrooms'
                         onChange={handleChange}
+                        value={propertyForm?.bathrooms}
                     />
                 </div>
                 <div className='form-item'>
@@ -118,6 +98,7 @@ const PropertiesForm = () => {
                         name='location'
                         placeholder='Location'
                         onChange={handleChange}
+                        value={propertyForm?.location}
                     />
                 </div>
                 <div className="form-item">
@@ -128,6 +109,7 @@ const PropertiesForm = () => {
                         name='sqft'
                         placeholder='Sqft'
                         onChange={handleChange}
+                        value={propertyForm?.sqft}
                     />
                 </div>
                 <div className="form-item">
@@ -138,6 +120,7 @@ const PropertiesForm = () => {
                         name='city'
                         placeholder='City'
                         onChange={handleChange}
+                        value={propertyForm?.city}
                     />
                 </div>
                 <div className="form-item">
@@ -148,23 +131,26 @@ const PropertiesForm = () => {
                         name='state'
                         placeholder='State'
                         onChange={handleChange}
+                        value={propertyForm?.state}
                     />
                 </div>
                 <div className="form-item">
-                    <input 
+                    <input
                     className='form-control'
-                    type="text" 
-                    id='zip' 
+                    type="text"
+                    id='zip'
                     name='zip'
                     placeholder='Zip-Code'
-                    onChange={handleChange} 
+                    onChange={handleChange}
+                    value={propertyForm?.zip}
                     />
                 </div>
                 <div className="form-item">
-                    <select 
+                    <select
                     className='form-control'
-                    id='status' 
+                    id='status'
                     name='status'
+                    value={propertyForm?.status}
                     onChange={handleChange}
                     >
                         <option value="">Status</option>
