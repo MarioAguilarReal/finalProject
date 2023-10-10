@@ -10,6 +10,7 @@ import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";
 import DetailView from "./pages/property-detail/detailView";
+import Contact from "./pages/contact/contact";
 import PropertiesList from "./pages/dashboard/properties/properties-list";
 import UsersList from "./pages/dashboard/users-list/users-list";
 
@@ -28,6 +29,8 @@ const RouteWrapper: React.FC = () => {
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/property/:id" element={<DetailView />} />
+            <Route path="/contact" element={<Contact />} />
+
             <Route path="/admin" element={<AdminSite />} >
                 <Route index path="dashboard" element={<NewPropertyPage />} />
                 <Route path="edit/:id" element={<EditPropertyPage />} />
