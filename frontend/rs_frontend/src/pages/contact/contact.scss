@@ -6,6 +6,7 @@ $background-color_1: #F2F2F2;
     display: flex;
     padding-left: 20rem;
     padding-right: 20rem;
+
 }
 
 .emailForm input {
@@ -56,6 +57,7 @@ $background-color_1: #F2F2F2;
     border: solid #696969 1px;
     padding: 3%;
     margin: 3%;
+    
 }
 
 .form-buttons {
@@ -72,6 +74,8 @@ $background-color_1: #F2F2F2;
     align-items: center;
     justify-content: center;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
 }
 
 h1 {
