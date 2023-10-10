@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid box-fx">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <img src={require('./logo.png')} alt=""  className='logo img-link box-fx'/>
           
         </a>
@@ -23,13 +23,13 @@ function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item ">
               <a className="nav-link active " aria-current="page" href="/">
                 Home
               </a>
             </li>
-          </ul>
+          </ul> */}
           <a className="nav-link" href="/login">
             <i className="fa-solid fa-user nav-item"></i>
             &nbsp;Login

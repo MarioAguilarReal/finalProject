@@ -1,29 +1,9 @@
 import './home.scss';
 import React, { useEffect } from 'react';
-import { useState } from 'react';
 import Slider from '../../components/slider/slider';
-
-import { Link } from 'react-router-dom';
-import PropertyCard from '../../components/propertyCard/propertyCard';
-import { Property } from '../../models/Property.model';
-import ProperiesService from '../../services/properies.service';
+import PropertyList from '../../components/propertyList/propertyList';
 
 const Home = () => {
-  const [properties, setProperties] = useState([] as any[]);
-
-  const getProperties = async () => {
-    const response = await ProperiesService.getAllProperties();
-    if (response?.data) {
-      console.log(response)
-      setProperties(response.data);
-    }
-  };
-
-
-  useEffect(() => {
-    getProperties();
-  }, []);
-
   return (
     <div className="home-container">
       <div className='home-bg'>
@@ -53,16 +33,7 @@ const Home = () => {
 
 
       <div className="main">
-        <div className="properties">
-
-          <div className="properties-header">
-            <h2>Properties</h2>
-            <Link to='/properties'>View all</Link>
-          </div>
-          <div className="properties-content">
-            {properties.map((property) => <PropertyCard property={property} />)}
-          </div>
-        </div>
+        <PropertyList showFilters={true} />
       </div>
 
 

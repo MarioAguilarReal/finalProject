@@ -6,7 +6,7 @@ class Property(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     bedrooms = models.PositiveIntegerField()
-    bathrooms = models.DecimalField(max_digits=3, decimal_places=1)
+    bathrooms = models.PositiveIntegerField()
     sqft = models.DecimalField(max_digits=10, decimal_places=2)
     location = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
