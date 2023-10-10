@@ -1,5 +1,6 @@
 import React from "react";
 import './aside-menu.scss';
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -10,22 +11,28 @@ const Sidebar = () => {
     <hr />
     <ul className="nav nav-pills flex-column mb-auto">
       <li className="nav-item">
-        <a href="#" className="nav-link active" aria-current="page">
-          <i className="fa fa-user" />
-          Users
-        </a>
+        <Link to={'users'} className="nav-link link-light">
+            <i className="fa fa-user" />
+            Users
+        </Link>
       </li>
       <li>
-        <a href="#" className="nav-link link-light">
+        <Link to={'new-user'} className="nav-link link-light">
+          <i className="fa fa-user-plus" />
+          New User
+        </Link>
+      </li>
+      <li>
+        <Link to={'properties'} className="nav-link link-light">
           <i className="fa fa-home"/>
           Properties
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="#" className="nav-link link-light">
+        <Link to={'dashboard'} className="nav-link link-light">
           <i className="fa fa-home"/>
           New Property
-        </a>
+        </Link>
       </li>
     </ul>
     <hr />
@@ -35,11 +42,12 @@ const Sidebar = () => {
         <strong>Admin</strong>
       </a>
       <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a className="dropdown-item" href="/">Home</a></li>
-        <li><a className="dropdown-item" href="#">Settings</a></li>
-        <li><a className="dropdown-item" href="#">Profile</a></li>
-        <li><hr className="dropdown-divider" /></li>
-        <li><a className="dropdown-item" href="/">Sign out</a></li>
+        <li>
+          <Link to={'/'}></Link>
+          </li>
+        <li>
+          <Link to={'/logout'}></Link>
+          </li>
       </ul>
     </div>
   </div>

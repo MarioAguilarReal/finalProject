@@ -1,18 +1,17 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from rest_framework.routers import SimpleRouter
 from .views import (
-    PropertyList,
-    PropertyDetail,
-    PropertyImageList,
-    PropertyImageDetail,
-    TypeList,
-    TypeDetail,
+    PropertyViewset,
+    ImageViewset,
+
 )
 
-urlpatterns = [
-    path('properties/', PropertyList.as_view(), name='property_list'),
-    path('properties/<int:pk>/', PropertyDetail.as_view(), name='property_detail'),
-    path('properties/<int:pk>/images/', PropertyImageList.as_view(), name='property_image_list'),
-    path('properties/<int:pk>/images/<int:image_pk>/', PropertyImageDetail.as_view(), name='property_image_detail'),
-    path('types/', TypeList.as_view(), name='type_list'),
-    path('types/<int:pk>/', TypeDetail.as_view(), name='type_detail'),
-]
+router = SimpleRouter()
+router.register('properties', PropertyViewset)
+router.register('images', ImageViewset)
+urlpatterns = router.urls
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
