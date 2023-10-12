@@ -1,32 +1,39 @@
-.navbar{
+.navbar {
   background-color: #001d93;
-  .container-fluid{
-    color:white;
-    .navbar-brand{
+
+  .container-fluid {
+    color: white;
+
+    .navbar-brand {
       color: white;
       font-weight: 500;
       font-size: 1.5rem;
       text-transform: uppercase;
-      &:hover{
+
+      &:hover {
         color: #a5b6fa;
       }
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
       background-color: white;
-      .navbar-toggler-icon{
+
+      .navbar-toggler-icon {
         color: white;
       }
     }
 
-    .collapse{
-      .nav-link{
+    .collapse {
+      justify-content: flex-end;
+      .nav-link {
         color: white;
-            font-weight: 500;
-            font-size: 1rem;
-            text-transform: uppercase;
-            &:hover{
-              color: #a5b6fa;
-            }
+        font-weight: 500;
+        font-size: 1rem;
+        text-transform: uppercase;
+
+        &:hover {
+          color: #a5b6fa;
+        }
       }
     }
 
@@ -48,39 +55,44 @@ $hover-color: #a5b6fa;
 $padding: 10px;
 
 .box-fx a {
-	color: $color_1;
-	position: relative;
-	text-decoration: none;
-	padding: $padding;
-	&::before, &::after {
-		content: '';
-		position: absolute;
-		left: 30%;
-		top: 0;
-		width: 40%;
-		height: 100%;
-		border-style: solid;
-		border-color: $hover-color;
+  color: $color_1;
+  position: relative;
+  text-decoration: none;
+  padding: $padding;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 30%;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    border-style: solid;
+    border-color: $hover-color;
 
 
-	}
-	&::before {
-		border-width: 0 0 2px 0 ;
-		transform: scaleX(0);
+  }
 
-	}
-	&::after {
-		border-width: 0 0 2px 0 ;
-		transform: scaleY(0);
+  &::before {
+    border-width: 0 0 2px 0;
+    transform: scaleX(0);
 
-	}
-	&:hover::before, &:hover::after {
-		transform: scale(1);
-	}
+  }
+
+  &::after {
+    border-width: 0 0 2px 0;
+    transform: scaleY(0);
+
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale(1);
+  }
 }
 
-@media (min-width: 768px)
-{
+@media (min-width: 768px) {
 
   $color_1: #ffffff;
   $background-color_1: #ffffff;
@@ -92,7 +104,9 @@ $padding: 10px;
     position: relative;
     text-decoration: none;
     padding: $padding;
-    &::before, &::after {
+
+    &::before,
+    &::after {
       content: '';
       position: absolute;
       left: 0;
@@ -103,15 +117,19 @@ $padding: 10px;
       border-color: $hover-color;
       transition: transform .3s ease-in-out;
     }
+
     &::before {
       border-width: 2px 0 2px 0;
       transform: scaleX(0);
     }
+
     &::after {
       border-width: 0 2px 0 2px;
       transform: scaleY(0);
     }
-    &:hover::before, &:hover::after {
+
+    &:hover::before,
+    &:hover::after {
       transform: scale(1);
     }
   }

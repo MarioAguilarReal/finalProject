@@ -1,26 +1,20 @@
 import './home.scss';
 import React, { useEffect } from 'react';
-import { useState } from 'react';
 import Slider from '../../components/slider/slider';
+import PropertyList from '../../components/propertyList/propertyList';
+import { useNavigate } from 'react-router-dom';
+
 
 import { Link } from 'react-router-dom';
 import PropertyCard from '../../components/propertyCard/propertyCard';
 import ProperiesService from '../../services/properies.service';
 
 const Home = () => {
-  const [properties, setProperties] = useState([] as any[]);
+  let navigate = useNavigate();
 
-  const getProperties = async () => {
-    const response = await ProperiesService.getAllProperties();
-    if (response?.data) {
-      setProperties(response.data);
-    }
-  };
-
-
-  useEffect(() => {
-    getProperties();
-  }, []);
+  const handleFilterButton = () => {
+    navigate('/property/list');
+  }
 
   return (
     <div className="home-container">
@@ -30,7 +24,7 @@ const Home = () => {
           <div className="slider-container">
             <div className="input-group">
               <div className="input-group-prepend">
-                <button className="btn btn-secondary" type="button">
+              <button className="btn btn-secondary" type="button">
                   <i className="fa-solid fa-map-marker"></i>
                 </button>
               </div>
@@ -41,7 +35,7 @@ const Home = () => {
                 </button>
               </div>
 
-              <button type="submit" className='search-filter'> Filter <i className="fa-solid fa-filter"></i> </button>
+              <button type="submit" className='search-filter' onClick={handleFilterButton}> Filter <i className="fa-solid fa-filter"></i> </button>
             </div>
           </div>
           <h1 className='slider-title'>REAL ESTATE AGENCY</h1>
@@ -51,16 +45,7 @@ const Home = () => {
 
 
       <div className="main">
-        <div className="properties">
-
-          <div className="properties-header">
-            <h2>Properties</h2>
-            <Link to='/properties'>View all</Link>
-          </div>
-          <div className="properties-content">
-            {properties.map((property) => <PropertyCard property={property} />)}
-          </div>
-        </div>
+        <PropertyList />
       </div>
 
 
