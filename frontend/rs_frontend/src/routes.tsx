@@ -5,7 +5,6 @@ import Footer from "./components/footer/footer";
 import Home from "./pages/home/home";
 import NewUsers from "./pages/new-user/new_users";
 import Login from "./pages/login/login";
-import PropertiesForm from "./components/propertiesForm/propertiesForm";
 import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";

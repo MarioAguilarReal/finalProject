@@ -58,7 +58,8 @@ def login_view(request):
         print(password)
         if user.check_password(password):
             # login(request, user)
-            return Response({'message': 'Inicio de sesión exitoso.'})
+            user_serializer = UserSerializer(user)
+            return Response(user_serializer.data, status=200)
 
         return Response({'error': 'Contraseña incorrecta.'}, status=400)
 
