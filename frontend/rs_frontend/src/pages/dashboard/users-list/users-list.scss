@@ -1,0 +1,72 @@
+.users-list{
+  .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:  0 2rem 2rem 2rem;
+
+    .title{
+      margin-top: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+  }
+  .list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .user-component{
+      display: flex;
+      width: 80%;
+      border-bottom: solid 1px;
+      border-width: 60%;
+      padding: .5rem 0 .5rem 0;
+      margin: .2rem 0 .2rem 0;
+
+      .profile{
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img{
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .information{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        text-align: left;
+        flex: 6;
+        .username{
+          font-size: 1.5rem;
+          text-transform: capitalize;
+          margin-right: 1rem;
+          margin-bottom: -5px;
+
+        }
+        .email{
+          font-size: 1rem;
+          margin-right: 1rem;
+          margin-bottom: -5px;
+          font-weight: 600;
+        }
+      }
+      .interaction{
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .btn{
+          width: 60%;
+          margin: 2px 0;
+        }
+      }
+    }
+  }
+}

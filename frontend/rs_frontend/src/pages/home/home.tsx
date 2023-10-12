@@ -5,7 +5,6 @@ import Slider from '../../components/slider/slider';
 
 import { Link } from 'react-router-dom';
 import PropertyCard from '../../components/propertyCard/propertyCard';
-import { Property } from '../../models/Property.model';
 import ProperiesService from '../../services/properies.service';
 
 const Home = () => {

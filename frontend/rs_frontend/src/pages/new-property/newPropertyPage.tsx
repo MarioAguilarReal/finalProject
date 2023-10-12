@@ -1,10 +1,11 @@
 import PropertiesForm from "../../components/propertiesForm/propertiesForm";
 import react, {useEffect, useState} from "react";
 import {Property} from "../../models/Property.model";
-import { Image } from "../../models/Images.model";
 import {useNavigate} from "react-router-dom";
 import ImageUpload from "../../components/propertiesForm/propertiesImages";
 import ProperiesService from "../../services/properies.service";
+
+import './newPropertyPage.scss';
 
 const NewPropertyPage = () => {
   const navigateTo = useNavigate();
@@ -88,7 +89,7 @@ const NewPropertyPage = () => {
   },[]);
 
   return (
-    <div>
+    <div className="new-property-page">
       <h1 className='title'>New Property</h1>
       <p className='subtitle'>Fill all field to go to next step</p>
       <div hidden={!showInforProp}>

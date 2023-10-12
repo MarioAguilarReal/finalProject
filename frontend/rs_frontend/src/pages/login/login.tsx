@@ -1,7 +1,9 @@
 import './login.scss'
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import usersService from '../../services/users.service';
+import { DataContext } from '../../store/dataContext';
+import { useContext } from 'react';
 
 interface User {
   email: string,
@@ -17,15 +19,22 @@ const Login = () => {
   let navigateTo = useNavigate();
   const [logUser, setLogUser] = useState(user as User);
 
+  const { setIsLoggedIn, isLoggedIn, setUser} = useContext(DataContext);
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const resp:any = await usersService.login(logUser);
+
     if(resp?.status === 200){
+      setIsLoggedIn(true);
+      setUser(resp.data);
       navigateTo('/admin/dashboard');
     }else{
       alert('Invalid credentials');
+      setIsLoggedIn(false);
     }
+
   }
 
 
@@ -37,10 +46,18 @@ const Login = () => {
     });
   };
 
+  useEffect(() => {
+    console.log('is logged in', isLoggedIn);
+    if(isLoggedIn){
+      console.log('is logged in');
+      navigateTo('/admin/dashboard');
+    }
+  }, []);
+
   return (
     <div className='login-container'>
       <section>
-        <a href="/">Back</a>
+        <Link to="/" className='btn'>Back</Link>
       </section>
       <section>
         <h1 className='title-form'>Login</h1>

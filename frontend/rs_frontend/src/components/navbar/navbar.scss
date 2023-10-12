@@ -34,7 +34,7 @@
 }
 
 .logo {
-  height: 3.5rem; 
+  height: 3.5rem;
 padding-bottom: -5px;
 margin-bottom: -5px;
 
@@ -44,8 +44,8 @@ margin-bottom: -5px;
 
 $color_1: #ffffff;
 $background-color_1: #ffffff;
-$hover-color: #a5b6fa; 
-$padding: 10px; 
+$hover-color: #a5b6fa;
+$padding: 10px;
 
 .box-fx a {
 	color: $color_1;
@@ -84,9 +84,9 @@ $padding: 10px;
 
   $color_1: #ffffff;
   $background-color_1: #ffffff;
-  $hover-color: #a5b6fa; 
-  $padding: 10px; 
-  
+  $hover-color: #a5b6fa;
+  $padding: 10px;
+
   .box-fx a {
     color: $color_1;
     position: relative;
@@ -115,5 +115,5 @@ $padding: 10px;
       transform: scale(1);
     }
   }
-   
+
 }
