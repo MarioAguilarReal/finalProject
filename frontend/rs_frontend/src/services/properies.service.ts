@@ -42,6 +42,17 @@ class PropertiesService {
     }
   }
 
+  async deleteImage(id: string) {
+    try {
+      console.log(id);
+      const response = await http.delete(`/images/${id}/`);
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   async getProperty(id: string) {
     try {
       const response = await http.get(`/properties/${id}/`); // Uncomment for production
