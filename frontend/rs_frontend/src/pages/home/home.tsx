@@ -5,13 +5,16 @@ import PropertyList from '../../components/propertyList/propertyList';
 import { useNavigate } from 'react-router-dom';
 
 
+import { Link } from 'react-router-dom';
+import PropertyCard from '../../components/propertyCard/propertyCard';
+import ProperiesService from '../../services/properies.service';
 
 const Home = () => {
   let navigate = useNavigate();
 
   const handleFilterButton = () => {
     navigate('/property/list');
-  };
+  }
 
   return (
     <div className="home-container">

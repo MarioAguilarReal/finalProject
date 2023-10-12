@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './detail.scss';
-import { useParams, useNavigate  } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import DetailSlider from '../../components/detailSlider/detailSlider';
 import axios from 'axios';
 import { Property } from '../../models/Property.model';
 import properiesService from '../../services/properies.service';
+import ModalComponent from '../../components/modal/modal';
 
 const DetailView = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const DetailView = () => {
     loadData();
   }, [id]);
 
-  async function loadData () {
+  async function loadData() {
     if (!id) return;
     let response = await properiesService.getProperty(id);
     setProperty(response?.data);
@@ -44,9 +45,10 @@ const DetailView = () => {
       <div className='container-detail-links'>
 
         <a href="#!" className=" text-decoration-none d-block mb-2" onClick={handleGoBack}>
-        <i className="fa-solid fa-chevron-left"></i>Back
+          <i className="fa-solid fa-chevron-left"></i>Back
         </a>
-        <button type="submit" className='btn btn-primary contact-button'> Contact Agent <i className="fa-regular fa-envelope"></i> </button>
+        <ModalComponent />
+        {/* <button type="submit" className='btn btn-primary contact-button'> Contact Agent <i className="fa-regular fa-envelope"></i> </button> */}
 
 
 

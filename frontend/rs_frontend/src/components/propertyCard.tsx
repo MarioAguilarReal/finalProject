@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
@@ -12,16 +13,15 @@ function Navbar() {
     <h4>:</h4>
     <h4>Amenities:</h4>
     <p className="card-text">Address goes here</p>
-    <a href="#" className="btn btn-primary">
+    <Link to="#" className="btn btn-primary">
       See more
-    </a>
+    </Link>
   </div>
 </div>
 
 
         );
     }
-    
+
     export default Navbar;
-    
-    
+

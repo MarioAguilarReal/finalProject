@@ -1,4 +1,41 @@
 .slide-menu{
     height: 100%;
     text-align: left;
+
+    .dashboard-title{
+        font-size: 2rem;
+        font-weight: bolder;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+    .nav{
+        .nav-item{
+            border-bottom: solid 1px gray;
+            padding: 1rem;
+            .nav-link{
+                .fa{
+                    margin-right: 1rem !important;
+                    background-color: red !important;
+                    color:green;
+                }
+            }
+        }
+    }
+}
+
+.dropdown-menu{
+    li{
+        .nav-link{
+            color: Black;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            text-decoration: none;
+            &:hover{
+                color: #007bff;
+            }
+        }
+    }
 }

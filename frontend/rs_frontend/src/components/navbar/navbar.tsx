@@ -1,16 +1,16 @@
 import React from 'react';
 import "./navbar.scss";
+import { Link } from 'react-router-dom';
 
- 
+
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid box-fx">
-        <a className="navbar-brand" href="/">
+        <Link to={'/'} className="navbar-brand">
           <img src={require('./logo.png')} alt=""  className='logo img-link box-fx'/>
-          
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,17 +23,17 @@ function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
-          {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item ">
-              <a className="nav-link active " aria-current="page" href="/">
+              {/* <Link to={'/'} className="nav-link active " aria-current="page">
                 Home
-              </a>
+              </Link> */}
             </li>
-          </ul> */}
-          <a className="nav-link" href="/login">
+          </ul>
+          <Link to="/login" className="nav-link">
             <i className="fa-solid fa-user nav-item"></i>
             &nbsp;Login
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

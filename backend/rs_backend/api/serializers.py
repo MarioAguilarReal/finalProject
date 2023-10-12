@@ -11,7 +11,7 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PropertySerializer(serializers.ModelSerializer):
-    images = ImageSerializer(many=True)
+    images = ImageSerializer(many=True, read_only=True)
     class Meta:
         model = Property
         fields = '__all__'

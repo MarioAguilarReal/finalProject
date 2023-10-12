@@ -1,5 +1,5 @@
 import './new_users.scss'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { User } from '../../models/User.model'
 import usersService from '../../services/users.service';
 
@@ -16,7 +16,8 @@ const initialUser : User = {
 
 const NewUsers = () => {
     const [user, setUser] = useState(initialUser as User);
-
+    const imageImputRef = useRef<HTMLInputElement>(null);
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = e.target;
         setUser({
@@ -62,11 +63,16 @@ const NewUsers = () => {
                 alert('User created');
 
                 setUser(initialUser as User);
+                if (imageImputRef.current) {
+                    imageImputRef.current.value = '';
+                }
             }
             else {
                 alert('Error creating user');
             }
         }
+        //clean form
+
     }
 
     const validateData = () => {
@@ -114,6 +120,10 @@ const NewUsers = () => {
         return isValid;
     }
 
+    const cleanForm = () => {
+        setUser(initialUser as User);
+    }
+
     useEffect(() => {
     }, [])
 
@@ -131,6 +141,7 @@ const NewUsers = () => {
                             id='username'
                             placeholder='UserName'
                             onChange={handleChange}
+                            value={user.username}
                         />
                     </div>
                     <div className='form-item'>
@@ -141,6 +152,7 @@ const NewUsers = () => {
                             id='first_name'
                             placeholder='First Name'
                             onChange={handleChange}
+                            value={user.first_name}
                         />
                     </div>
                     <div className='form-item'>
@@ -151,6 +163,7 @@ const NewUsers = () => {
                             id='last_name'
                             placeholder='Last Name'
                             onChange={handleChange}
+                            value={user.last_name}
                         />
                     </div>
                     <div className='form-item'>
@@ -161,6 +174,7 @@ const NewUsers = () => {
                             id='phone_number'
                             placeholder='Phone'
                             onChange={handleChange}
+                            value={user.phone_number}
                         />
                     </div>
                     <div className='form-item'>
@@ -171,6 +185,7 @@ const NewUsers = () => {
                             name='profile_picture'
                             id='profile_picture'
                             onChange={handleImageChange}
+                            ref = {imageImputRef}
                         />
                     </div>
                     <div className='form-item'>
@@ -181,6 +196,7 @@ const NewUsers = () => {
                             id='email'
                             placeholder='Email'
                             onChange={handleChange}
+                            value={user.email}
                         />
                     </div>
                     <div className='form-item'>
@@ -191,6 +207,7 @@ const NewUsers = () => {
                             id='password'
                             placeholder='Password'
                             onChange={handleChange}
+                            value={user.password}
                         />
                     </div>
                     <div className='form-item'>
@@ -201,6 +218,7 @@ const NewUsers = () => {
                             id='password2'
                             placeholder='Confirm Password'
                             onChange={handleChange}
+                            value={user.password2}
                         />
                     </div>
                     <button className='btn btn-primary' onClick={saveUser}>Create new user</button>
