@@ -1,13 +1,21 @@
 .slider{
-    height: 70vh;
+    height: 40vh;
+    width: 100%;
     overflow: hidden;
+    border: none;
     .carrousel-container{
-        max-height: 80vh;
+        max-height: 70vh;
         display: flex;
         // justify-content: center;
+        border: none;
+    }
+    .carousel-inner{
+        height:40vh;
+        padding-bottom: 45%;
+        border: none;
     }
     .carousel-item{
-        height: 70vh;
+        height: 40vh;
         // text-align: center;
         .slider-content{
             .slider-title{
@@ -47,7 +55,16 @@
     }
 }
 
-@media (min-width: 768px) {
+
+
+
+
+
+// @media (min-width: 768px) {
+
+// }
+
+@media (min-width: 1365px) {
     .slider{
         height: 70vh;
         width: 100%;
