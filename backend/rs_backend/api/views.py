@@ -3,7 +3,8 @@ from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 import json
 from rest_framework import status
-
+from django.template import loader
+from django.http import HttpResponse
 
 from .models import Property, Type, Image
 from .serializers import PropertySerializer, TypeSerializer, ImageSerializer
@@ -63,3 +64,8 @@ class ImageViewset(viewsets.ModelViewSet):
         image = Image.objects.get(pk=pk)
         image.delete()
         return Response(status=204)
+
+
+def index(request):
+    template=loader.get_template('index.html')
+    return HttpResponse(template.render())
