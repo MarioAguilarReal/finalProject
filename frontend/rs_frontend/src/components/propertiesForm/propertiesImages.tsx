@@ -3,9 +3,11 @@ import { useDropzone } from 'react-dropzone';
 import './propertiesImages.scss'; // Importa los estilos SCSS aquí
 import ProperiesService from '../../services/properies.service';
 import { Property } from '../../models/Property.model';
+import { useLocation, useNavigate } from 'react-router-dom';
 // import { Image } from './../../models/Images.model';
 
 interface Image {
+  id?: number;
   property: Property;
   file: File;
   preview: string;
@@ -15,7 +17,9 @@ function ImageUpload(props:any) {
   const {serveImages} = props;
   const {propertyRef}=props;
   const [images, setImages] = useState<Image[]>([]);
+  const [editing, setEditing] = useState<boolean>(false);
 
+  const NavigateTo = useNavigate();
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       console.log(propertyRef)
@@ -37,7 +41,9 @@ function ImageUpload(props:any) {
 
   const removeImage = (index: number) => {
     const updatedImages = [...images];
-    updatedImages.splice(index, 1);
+    let image:any = updatedImages.splice(index, 1);
+    ProperiesService.deleteImage(image[0].id);
+
     setImages(updatedImages);
   };
 
@@ -50,17 +56,24 @@ function ImageUpload(props:any) {
     });
   };
 
+  const updateImages = () => {
+    if (images.length > 0) {
+      submitImages();
+    }
+    NavigateTo('/admin/properties');
+  };
 
 
   useEffect(() => {
     if(propertyRef){
     }
     if(serveImages){
+      setEditing(true);
       let prevIm:Image[] = serveImages.map((image:any) => (
         image.preview = image.image,
         image.file = image.image
       ))
-      console.log(serveImages);
+      // console.log(serveImages);
       setImages(serveImages);
     }
   }, [propertyRef, serveImages]);
@@ -86,7 +99,11 @@ function ImageUpload(props:any) {
         ))}
       </div>
       <div>
-        <button onClick={submitImages}>Submit Images</button>
+        {editing ? (
+          <button onClick={updateImages}>Finish Images</button>
+          ):(
+            <button onClick={submitImages}>Submit Images</button>
+          )}
       </div>
     </div>
   );
