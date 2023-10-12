@@ -25,9 +25,12 @@ const RouteWrapper: React.FC = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/new-users" element={<NewUsers />} />
+
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
             <Route path="/property/:id" element={<DetailView />} />
+            <Route path="/property/list" element={<PropertiesList  />} />
             <Route path="/contact" element={<Contact />} />
 
             <Route path="/admin" element={<AdminSite />} >
