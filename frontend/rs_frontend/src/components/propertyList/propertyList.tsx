@@ -4,7 +4,7 @@ import properiesService from '../../services/properies.service';
 import PropertyCard from '../propertyCard/propertyCard';
 
 interface PropertyListProps {
-    showFilters?: boolean
+    showFilters?: boolean 
     properties?: any[]
 }
 
@@ -98,19 +98,6 @@ function PropertyList(params: PropertyListProps) {
         <main>
             <div className="properties">
                 {showFilters ? (<section className="filter-content">
-                    {/* <div className="filter">
-                            <label htmlFor="location">Location</label>
-                            <input type="text" id="location" name="location" />
-                        </div>
-                        <div className="filter">
-                            <label htmlFor="type">Type</label>
-                            <select name="type" id="type">
-                                <option value="house">House</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="room">Room</option>
-                            </select>
-                        </div> */}
-
                     <div className="filter">
                         <label htmlFor="price">Price</label>
                         <div className="filter-input">
@@ -126,11 +113,11 @@ function PropertyList(params: PropertyListProps) {
                         </div>
                     </div>
                     <div className="filter filter-range">
-                        <label htmlFor="bedrooms" className="form-label">Bedrooms</label>
+                        <label htmlFor="bedrooms" className="form-label">Bedrooms {filters.bedrooms}</label>
                         <input type="range" onChange={handleFilters} className="form-range" min="1" max="5" defaultValue={1} id="bedrooms" name="bedrooms"></input>
                     </div>
                     <div className="filter filter-range">
-                        <label htmlFor="bathrooms" className="form-label">Bathrooms</label>
+                        <label htmlFor="bathrooms" className="form-label">Bathrooms {filters.bathrooms}</label>
                         <input type="range" onChange={handleFilters} className="form-range" min="1" max="5" defaultValue={1} id="bathrooms" name="bathrooms"></input>
                     </div>
 

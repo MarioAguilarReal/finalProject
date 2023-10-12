@@ -2,8 +2,17 @@ import './home.scss';
 import React, { useEffect } from 'react';
 import Slider from '../../components/slider/slider';
 import PropertyList from '../../components/propertyList/propertyList';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Home = () => {
+  let navigate = useNavigate();
+
+  const handleFilterButton = () => {
+    navigate('/property/list');
+  };
+
   return (
     <div className="home-container">
       <div className='home-bg'>
@@ -12,7 +21,7 @@ const Home = () => {
           <div className="slider-container">
             <div className="input-group">
               <div className="input-group-prepend">
-                <button className="btn btn-secondary" type="button">
+              <button className="btn btn-secondary" type="button">
                   <i className="fa-solid fa-map-marker"></i>
                 </button>
               </div>
@@ -23,7 +32,7 @@ const Home = () => {
                 </button>
               </div>
 
-              <button type="submit" className='search-filter'> Filter <i className="fa-solid fa-filter"></i> </button>
+              <button type="submit" className='search-filter' onClick={handleFilterButton}> Filter <i className="fa-solid fa-filter"></i> </button>
             </div>
           </div>
           <h1 className='slider-title'>REAL ESTATE AGENCY</h1>
@@ -33,7 +42,7 @@ const Home = () => {
 
 
       <div className="main">
-        <PropertyList showFilters={true} />
+        <PropertyList />
       </div>
 
 

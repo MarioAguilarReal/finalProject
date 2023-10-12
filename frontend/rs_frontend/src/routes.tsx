@@ -10,6 +10,7 @@ import AdminSite from "./pages/dashboard";
 import NewPropertyPage from "./pages/new-property/newPropertyPage";
 import EditPropertyPage from "./pages/edit-property/editPropertyPage";
 import DetailView from "./pages/property-detail/detailView";
+import PropertyList from "./components/propertyList/propertyList";
 
 
 const RouteWrapper: React.FC = () => {
@@ -22,12 +23,16 @@ const RouteWrapper: React.FC = () => {
         {shouldShowNavFoot && <Navbar />}
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/new-users" element={<NewUsers />} />
+
             <Route path="/login" element={<Login />} />
+            <Route path="/new-users" element={<NewUsers />} />
+
             <Route path="/new-property" element={<NewPropertyPage />} />
             <Route path="/edit-property" element={<EditPropertyPage />} />
-            <Route path="/admin/dashboard" element={<AdminSite />} />
             <Route path="/property/:id" element={<DetailView />} />
+            <Route path="/property/list" element={<PropertyList showFilters={true} />} />
+
+            <Route path="/admin/dashboard" element={<AdminSite />} />
         </Routes>
         {shouldShowNavFoot && <Footer />}
     </div>
