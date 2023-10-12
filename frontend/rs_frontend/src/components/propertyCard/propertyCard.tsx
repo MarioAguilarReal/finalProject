@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { Property } from "../../models/Property.model";
 import "./propertyCard.scss"
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 const PropertyCard = (params: any) => {
 
     const [property, setProperty] = useState({} as Property);
+    const navigate = useNavigate();
 
     const handleClck = () => {
-        console.log("clicked")
+        navigate("/property/" + property.id);
     };
 
     useEffect(() => {
@@ -30,11 +32,11 @@ const PropertyCard = (params: any) => {
     }, [params.property]);
 
     return (
-        <Link to={`/property/${property.id}`} >
+
         <div className="propertyCard" onClick={handleClck}>
 
             <div className="property-image">
-                <img src={property?.images?.length > 0 ? property.images[0].image : ""} alt="" />
+                <img src={property?.images?.length > 0 ? property.images[0].image : "/static/house.jpeg"} />
             </div>
 
 
@@ -85,7 +87,6 @@ const PropertyCard = (params: any) => {
             </div>
 
         </div>
-        </Link>
     );
 };
 
